@@ -1,22 +1,25 @@
-name: Daemon Vault Integration Test
-on: [push, pull_request]
+name: Daemon Vault Auth Test
+on: [push]
 
 jobs:
-  daemon_test:
+  auth_test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-      - name: Install deps
-        run: |
+        with: {python-version: '3.11'}
+      - run: |
           pip install -r requirements.txt fastapi uvicorn requests python-dotenv
           pip install -e .
-      - name: Start mock Vault
-        run: nohup python tests/vault_server.py > server.log 2>&1 &
-      - name: Run daemon
-        run: timeout 20s python -m genesis_cli.num_daemon || true
-      - name: Check sync
+      - name: Start Vault with token
+        env:
+          NUN_VAULT_TOKEN: secret-token
         run: |
-          grep -q "Vault sync received:" server.log || (echo "Sync missing" && cat server.log && exit 1)
+          nohup python tests/vault_server.py > server.log 2>&1 &
+          sleep 2
+      - name: Run daemon with token
+        env:
+          NUN_VAULT_TOKEN: secret-token
+        run: timeout 15s python -m genesis_cli.num_daemon || true
+      - name: Check sync
+        run: grep -q "Vault sync received:" server.log
