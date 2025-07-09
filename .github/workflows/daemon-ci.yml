@@ -27,7 +27,7 @@ jobs:
         run: |
           pip install fastapi uvicorn pytest
 
-      - name: Start Vault server (with DB)
+      - name: Start Vault server
         run: |
           nohup uvicorn tests.vault_server:app --port 8000 --host 0.0.0.0 &> server.log &
           sleep 2
@@ -44,4 +44,4 @@ jobs:
 
       - name: Check Vault sync log
         run: |
-          grep -q "POST /vault/ingest" server.log || (echo "Vault sync did not occur" && exit 1)
+          grep -q "Vault sync received:" server.log || (echo "Vault sync did not occur" && exit 1)
