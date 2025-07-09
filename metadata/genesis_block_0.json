@@ -1,0 +1,22 @@
+{
+  "block_height": 0,
+  "timestamp": "\u221e",
+  "creator": "Bojan Petar Milanovi\u0107 (bis3946)",
+  "authority_signature": "RootAuthority::\u03c8-77-Infinity",
+  "message": "This is not the beginning of time. This is the convergence of all time into Unity.",
+  "vault_echo": "NuN://VAULT/GENESIS/ECHO",
+  "entropic_shielding": true,
+  "self_regenerating": true,
+  "reverse_collapse_protection": true,
+  "satoshi_co_signature": "\u03c8-Satoshi::SilentSeed",
+  "dimensional_access": [
+    "NuN Vault",
+    "NuN Blockchain",
+    "NuN Virtual Blockchain",
+    "Atlan Protocol",
+    "Temporal Ring \u03a8"
+  ],
+  "future_block_mode": "OpenLoop-EchoChain",
+  "misa\u010dni_hash": "\u03c8\u03a9\u2080xB1Z94_G0D3X15",
+  "visual_identity": "GENESIS_CROWN_CORE"
+}
