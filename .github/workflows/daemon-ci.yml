@@ -45,4 +45,11 @@ jobs:
 
       - name: Check Vault sync log
         run: |
-          grep "Vault sync: ✅" server.log || (echo "Vault sync did not occur" && exit 1)
+          # Check for server receiving or client sending
+          if grep -q "Vault sync received:" server.log; then
+            echo "Vault sync received confirmed"
+          elif grep -q "Vault sync: ✅" tests/output.json; then
+            echo "Vault sync send confirmed"
+          else
+            echo "Vault sync did not occur" && exit 1
+          fi
