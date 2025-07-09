@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
+from fastapi.responses import Response
 
 app = FastAPI()
 
@@ -10,6 +11,10 @@ class Block(BaseModel):
     hash: str
     echo: str
     shadow: str
+
+@app.head("/vault/ingest")
+async def head_ingest():
+    return Response(status_code=200)
 
 @app.post("/vault/ingest")
 async def ingest(block: Block):
