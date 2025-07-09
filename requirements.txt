@@ -1,0 +1,4 @@
+# Required Python packages for Genesis Block 0 integrity system
+# These packages are used for hashing and system datetime operations
+# In future versions, AI modules and blockchain connectors will be added
+
