@@ -1,0 +1,2 @@
+[console_scripts]
+nun = genesis_cli.nun_cli:main

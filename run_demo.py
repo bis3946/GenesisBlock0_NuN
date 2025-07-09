@@ -1,4 +1,4 @@
-from code.proof_of_integrity import IntegrityNode
+from genesis_code.proof_of_integrity import IntegrityNode
 
 print("🧪 Running Genesis Block 0 Integrity Demo...")
 

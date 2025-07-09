@@ -1,0 +1,11 @@
+Metadata-Version: 2.4
+Name: genesisblock0
+Version: 0.2
+Summary: Genesis Block 0: Foundation of the NuN Blockchain
+Home-page: https://github.com/bis3946/GenesisBlock0_NuN
+Author: Bojan Petar Milanović
+License-File: LICENSE
+Dynamic: author
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: summary
